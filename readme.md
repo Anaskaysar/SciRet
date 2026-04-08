@@ -6,11 +6,12 @@
 <img src="https://img.shields.io/badge/License-MIT-teal?style=for-the-badge" />
 
 # SciRet v2
+
 ### Multimodal Retrieval-Augmented Systems for Scientific Knowledge Access
 
-*An evolution of the original SciRet (2022) — extending text-only RAG to reason across text, figures, tables, and equations in scientific literature.*
+_An evolution of the original SciRet (2022) — extending text-only RAG to reason across text, figures, tables, and equations in scientific literature._
 
-![SciRet v2 Demo Interface](Images/Demopage.png)
+![SciRet v2 Demo Interface](0_docs/Images/Demopage.png)
 
 </div>
 
@@ -18,22 +19,22 @@
 
 ## Overview
 
-Scientific papers are multimodal documents. A paper on COVID-19 lung imaging conveys critical information through CT scan figures, comparison tables of patient outcomes, and statistical charts — not just through text. A retrieval system that ignores these modalities is, by definition, incomplete.
+<p class="text-justify">Scientific papers are multimodal documents. A paper on COVID-19 lung imaging conveys critical information through CT scan figures, comparison tables of patient outcomes, and statistical charts — not just through text. A retrieval system that ignores these modalities is, by definition, incomplete.
 
 **SciRet v2** addresses this gap by building a modern Retrieval-Augmented Generation (RAG) pipeline that indexes and retrieves across all content types in scientific papers, then uses a vision-language model to generate grounded, cited answers.
 
 This project is both a research contribution and a PhD preparation portfolio, targeting publication at ECIR / ACL workshops.
 
----
+</p>
 
 ## Research Questions
 
-| # | Question |
-|---|----------|
+| #       | Question                                                                                                                                                                                                             |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **RQ1** | Does incorporating multimodal content — figures, tables, visual elements — into a RAG pipeline improve the quality, completeness, and faithfulness of answers to scientific queries compared to text-only retrieval? |
-| **RQ2** | How does a modern text-only RAG system (2026 components) compare to the original SciRet (2022) on the same retrieval and generation tasks? |
-| **RQ3** | What is the most effective strategy for fusing text and visual modalities — late fusion, early fusion, or learned fusion? |
-| **RQ4** | How can hallucination be detected and reduced in scientific answer generation where factual accuracy is critical? |
+| **RQ2** | How does a modern text-only RAG system (2026 components) compare to the original SciRet (2022) on the same retrieval and generation tasks?                                                                           |
+| **RQ3** | What is the most effective strategy for fusing text and visual modalities — late fusion, early fusion, or learned fusion?                                                                                            |
+| **RQ4** | How can hallucination be detected and reduced in scientific answer generation where factual accuracy is critical?                                                                                                    |
 
 ---
 
@@ -86,17 +87,17 @@ This project is both a research contribution and a PhD preparation portfolio, ta
 
 ## Technology Stack
 
-| Component | 2022 (SciRet v1) | 2026 (SciRet v2) |
-|-----------|-----------------|-----------------|
-| Framework | Haystack v1 *(deprecated)* | LangChain v0.3+ |
-| Text Embedder | DPR bi-encoder | BGE-M3 |
-| Sparse Retrieval | None | BM25 (rank-bm25) |
-| Vector Store | FAISS flat index | ChromaDB |
-| Reranker | None | ms-marco-MiniLM cross-encoder |
-| Generator | GPT-Neo 2.7B | Mistral 7B / Gemini API |
-| Multimodal | None | CLIP + BLIP-2 + LLaVA |
-| Evaluation | None (qualitative) | RAGAS framework |
-| UI | Flask | Gradio |
+| Component        | 2022 (SciRet v1)           | 2026 (SciRet v2)              |
+| ---------------- | -------------------------- | ----------------------------- |
+| Framework        | Haystack v1 _(deprecated)_ | LangChain v0.3+               |
+| Text Embedder    | DPR bi-encoder             | BGE-M3                        |
+| Sparse Retrieval | None                       | BM25 (rank-bm25)              |
+| Vector Store     | FAISS flat index           | ChromaDB                      |
+| Reranker         | None                       | ms-marco-MiniLM cross-encoder |
+| Generator        | GPT-Neo 2.7B               | Mistral 7B / Gemini API       |
+| Multimodal       | None                       | CLIP + BLIP-2 + LLaVA         |
+| Evaluation       | None (qualitative)         | RAGAS framework               |
+| UI               | Flask                      | Gradio                        |
 
 ---
 
@@ -168,13 +169,13 @@ sciret-v2/
 
 ## Comparison: SciRet v1 vs v2
 
-*Results table will be populated as experiments are completed.*
+_Results table will be populated as experiments are completed._
 
-| System | Recall@5 | MRR | Faithfulness | Answer Relevance |
-|--------|----------|-----|--------------|-----------------|
-| SciRet 2022 (DPR + GPT-Neo) | — | — | — | — |
-| SciRet v2 Text-only | — | — | — | — |
-| SciRet v2 Multimodal | — | — | — | — |
+| System                      | Recall@5 | MRR | Faithfulness | Answer Relevance |
+| --------------------------- | -------- | --- | ------------ | ---------------- |
+| SciRet 2022 (DPR + GPT-Neo) | —        | —   | —            | —                |
+| SciRet v2 Text-only         | —        | —   | —            | —                |
+| SciRet v2 Multimodal        | —        | —   | —            | —                |
 
 ---
 
@@ -241,6 +242,7 @@ SciRet v2 modernises the architecture, extends it to multimodal inputs, and intr
 ## Publication Target
 
 This work targets submission to:
+
 - **ECIR 2026** — European Conference on Information Retrieval
 - **ACL workshops** — NLP for scientific documents
 - **arXiv preprint** — posted upon draft completion
@@ -254,8 +256,7 @@ MSc Graduate | Independent Researcher |
 Laurentian University,
 Sudbury, Ontario, Canada.
 
-
-*This project is part of a PhD application portfolio.*
+_This project is part of a PhD application portfolio._
 
 ---
 
