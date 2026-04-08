@@ -1,8 +1,44 @@
+# Virtual Environment
 venv/
+.venv/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+
+# Data and Outputs (Large files & generated content)
+1_data/*
+!1_data/**/
+!1_data/**/.gitkeep
+4_results/
+index/
+*.db
+*.sqlite
+*.csv
+*.parquet
+*.jsonl
+
+# Documentation/Configs that shouldn't be shared
+.env
 Ignore.md
 SciRet_v2_Research_Proposal.docx
 SciRet_v2_Research_Proposal.pdf
 0_docs/PDFs
-1_data/
 truth.md
 tiered_dataset_approch.md
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IDEs
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db

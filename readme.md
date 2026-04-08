@@ -118,21 +118,15 @@ This project uses the **CORD-19 (COVID-19 Open Research Dataset Challenge)** —
 ```
 sciret-v2/
 │
-├── notebooks/
-│   ├── 01_data_exploration.ipynb       # CORD-19 dataset analysis
-│   ├── 02_text_chunking.ipynb          # Chunking strategy experiments
-│   ├── 03_embedding_baseline.ipynb     # BGE-M3 embedding pipeline
-│   ├── 04_hybrid_retrieval.ipynb       # BM25 + dense hybrid search
-│   ├── 05_reranking.ipynb              # Cross-encoder reranking
-│   ├── 06_figure_extraction.ipynb      # PDF figure extraction
-│   ├── 07_clip_embeddings.ipynb        # CLIP multimodal embeddings
-│   ├── 08_multimodal_pipeline.ipynb    # Full multimodal RAG
-│   └── 09_evaluation.ipynb            # RAGAS evaluation & comparison
+├── 0_docs/                            # Documentation, design docs, and images
+│   └── Images/                        # Screenshots and diagrams
 │
-├── src/
+├── 1_data/                            # Local data (Ignored by Git)
+│
+├── 2_src/                             # Source code
 │   ├── data/
-│   │   ├── loader.py                   # CORD-19 data loading
-│   │   ├── chunker.py                  # Text chunking strategies
+│   │   ├── loader.py                  # CORD-19 data loading
+│   │   ├── chunker.py                 # Text chunking strategies
 │   │   └── pdf_parser.py              # Figure & table extraction
 │   ├── embeddings/
 │   │   ├── text_embedder.py           # BGE-M3 text embedding
@@ -146,19 +140,30 @@ sciret-v2/
 │   │   ├── text_generator.py          # Mistral 7B generation
 │   │   └── visual_generator.py        # LLaVA visual QA
 │   ├── evaluation/
-│   │   └── ragas_eval.py             # RAGAS evaluation pipeline
+│   │   └── ragas_eval.py              # RAGAS evaluation pipeline
 │   └── pipeline.py                    # Full end-to-end pipeline
 │
-├── app/
-│   └── gradio_app.py                  # Gradio demo interface
+├── 3_notebooks/                       # Development & experimentation
+│   ├── 01_data_exploration.ipynb      # CORD-19 dataset analysis
+│   ├── 02_text_chunking.ipynb         # Chunking strategy experiments
+│   ├── 03_embedding_baseline.ipynb    # BGE-M3 embedding pipeline
+│   ├── 04_hybrid_retrieval.ipynb      # BM25 + dense hybrid search
+│   ├── 05_reranking.ipynb             # Cross-encoder reranking
+│   ├── 06_figure_extraction.ipynb     # PDF figure extraction
+│   ├── 07_clip_embeddings.ipynb       # CLIP multimodal embeddings
+│   ├── 08_multimodal_pipeline.ipynb   # Full multimodal RAG
+│   └── 09_evaluation.ipynb           # RAGAS evaluation & comparison
 │
-├── legacy/                            # Original SciRet 2022 code
+├── 4_results/                         # Experiment outputs & evaluation results
+│   └── comparison_table.md           # System comparison results
+│
+├── 5_app/                             # Demo application
+│   └── gradio_app.py                 # Gradio demo interface
+│
+├── 6_legacy/                          # Original SciRet 2022 code & reports
 │   ├── Data-Preparation.ipynb
 │   ├── Train.ipynb
 │   └── Testing_Save_and_Load_Model.ipynb
-│
-├── results/
-│   └── comparison_table.md            # System comparison results
 │
 ├── requirements.txt
 ├── Dataset_Link.txt
