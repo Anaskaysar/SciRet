@@ -25,6 +25,7 @@ index/
 # Documentation/Configs that shouldn't be shared
 .env
 Ignore.md
+Paper/
 0_docs/SciRet_v2_Research_Proposal.docx 
 0_docs/PDFs
 truth.md
@@ -41,3 +42,6 @@ tiered_dataset_approch.md
 # OS-specific
 .DS_Store
 Thumbs.db
+
+Ignore/
+docs/

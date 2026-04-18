@@ -5,9 +5,9 @@
 <img src="https://img.shields.io/badge/Python-3.10%2B-green?style=for-the-badge&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/License-MIT-teal?style=for-the-badge" />
 
-# SciRet v2
+# SciRet
 
-### Multimodal Retrieval-Augmented Systems for Scientific Knowledge Access
+### A Compute-Aware Multimodal RAG Framework for Reproducible Scientific Question Answering
 
 _An evolution of the original SciRet (2022) — extending text-only RAG to reason across text, figures, tables, and equations in scientific literature._
 
@@ -115,8 +115,17 @@ This project uses the **CORD-19 (COVID-19 Open Research Dataset Challenge)** —
 ## Data Workflow
 
 1.  **Raw Data**: Place CORD-19 `metadata.csv` in `1_data/raw/`.
-2.  **Preprocessing**: Run `3_notebooks/011_eda.ipynb`. This cleans the data and exports a sampled subset (e.g., 1,000 papers) to `1_data/processed/cleaned_metadata.csv`.
-3.  **Chunking & Indexing**: Subsequent notebooks load the `cleaned_metadata.csv` to ensure consistency and speed.
+2.  **Data Exploration & Cleaning**: Run `3_notebooks/01_data_exploration.ipynb`. This exports a cleaned sampled subset (Tier 1 default: 1,000 papers).
+3.  **Chunking**: Run `3_notebooks/02_text_chunking.ipynb` to produce chunked text artifacts.
+4.  **Embeddings + Retrieval Pipeline**: Run notebooks `03` to `09` in order for embedding, retrieval, reranking, multimodal integration, and evaluation.
+
+### Tiered Evaluation Protocol
+
+- **Tier 1 (Development, local):** 1,000 papers for fast debugging and iteration.
+- **Tier 2 (Experiments, Kaggle):** 50,000 papers for primary paper results.
+- **Tier 3 (Optional):** full CORD-19 only if additional compute is available.
+
+The same preprocessing, chunking, retrieval, and generation settings should be held constant across tiers; only corpus scale changes.
 
 ---
 
@@ -215,15 +224,19 @@ _Results table will be populated as experiments are completed._
 ### Installation
 
 ```bash
-git clone https://github.com/Anaskaysar/SciRet-v2-Scientific-Retrieval-Reimagined
-cd SciRet-v2-Scientific-Retrieval-Reimagined
+git clone https://github.com/Anaskaysar/SciRet
+cd SciRet
 pip install -r requirements.txt
 ```
+
+### Paper Template and Submission Note
+
+The scientific content (method, experiments, results) remains the same across submissions, but the paper must be formatted to each venue's template (e.g., ECIR, ACL workshop, journal style). Keep one canonical draft in `Paper/main.tex`, then adapt formatting and section ordering per venue before submission.
 
 ### Quick Start
 
 ```python
-from src.pipeline import SciRetPipeline
+from pipeline import SciRetPipeline  # when running from project source path
 
 pipeline = SciRetPipeline()
 pipeline.load_index("./index/")
@@ -239,7 +252,6 @@ print(result.sources)
 > Full setup instructions and notebook walkthroughs coming in Phase 1.
 
 ---
-
 ## Background
 
 This project is a direct evolution of **SciRet** (2022), a BSc Senior Design Project at the Department of Electrical and Computer Engineering, North South University, Bangladesh. The original system used GPT-Neo and DPR to build a passage retrieval system over the CORD-19 dataset.
@@ -258,6 +270,9 @@ This work targets submission to:
 - **ECIR 2026** — European Conference on Information Retrieval
 - **ACL workshops** — NLP for scientific documents
 - **arXiv preprint** — posted upon draft completion
+
+> [!NOTE]
+> The manuscript is maintained in Overleaf for editor/coauthor collaboration. This repository focuses on code, experiments, and reproducible artifacts used by the paper.
 
 ---
 
