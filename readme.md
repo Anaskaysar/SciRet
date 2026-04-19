@@ -1,7 +1,7 @@
 <div align="center">
 
 <img src="https://img.shields.io/badge/Status-In%20Development-amber?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Phase-0%20%E2%80%94%20Foundations-blue?style=for-the-badge" />
+<!-- <img src="https://img.shields.io/badge/Phase-0%20%E2%80%94%20Foundations-blue?style=for-the-badge" /> -->
 <img src="https://img.shields.io/badge/Python-3.10%2B-green?style=for-the-badge&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/License-MIT-teal?style=for-the-badge" />
 
@@ -252,6 +252,7 @@ print(result.sources)
 > Full setup instructions and notebook walkthroughs coming in Phase 1.
 
 ---
+
 ## Background
 
 This project is a direct evolution of **SciRet** (2022), a BSc Senior Design Project at the Department of Electrical and Computer Engineering, North South University, Bangladesh. The original system used GPT-Neo and DPR to build a passage retrieval system over the CORD-19 dataset.
