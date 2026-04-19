@@ -1,5 +1,5 @@
 """
-SciRet v2 — central tier/path/model config.
+SciRet — central tier/path/model config.
 
 Single source of truth for notebooks AND source modules so the exact same
 codebase runs on:
@@ -66,7 +66,7 @@ SEED: int = 42
 # ---------------------------------------------------------------------------
 
 def _find_project_root(start: Path | None = None) -> Path:
-    """Walk upward looking for the SciRet v2 root (has `2_src/` and `readme.md`)."""
+    """Walk upward looking for the SciRet root (has `2_src/` and `readme.md`)."""
     p = (start or Path(__file__)).resolve()
     for candidate in [p, *p.parents]:
         if (candidate / "2_src").is_dir() and (candidate / "readme.md").is_file():

@@ -1,6 +1,6 @@
-# SciRet v2 — Project completion plan and instructions
+# SciRet — Project completion plan and instructions
 
-**Source of truth for research scope:** `0_docs/SciRet_v2_Research_Proposal.docx`  
+**Source of truth for research scope:** `0_docs/SciRet_Research_Proposal.docx`  
 **Technical overview / public spec:** `README.md`  
 **Operational constraints (dataset scale, platforms):** `truth.md` (if present locally)
 
@@ -11,7 +11,7 @@ Whenever the proposal and README disagree, follow the **proposal**.
 ## 1. Goals (what “done” means)
 
 1. **System:** Multimodal RAG over a CORD-19 subset — text chunks, figures, tables — with hybrid retrieval (BM25 + dense), reranking, and grounded answer generation (+ optional visual QA path).
-2. **Research:** Answer RQs in the README/proposal (multimodal vs text-only, comparison to SciRet v1, fusion strategies, hallucination mitigation).
+2. **Research:** Answer RQs in the README/proposal (multimodal vs text-only, comparison to Legacy SciRet, fusion strategies, hallucination mitigation).
 3. **Artifacts:** Reproducible code (`2_src`), notebooks for exploration, evaluation outputs (`4_results`), Gradio demo (`5_app`), and a paper / preprint path (ECIR / ACL workshop / arXiv as targeted in README).
 4. **Demo:** Replace dummy retrieval in `gradio_app.py` with the real pipeline; optional Hugging Face Space.
 
@@ -38,9 +38,9 @@ Whenever the proposal and README disagree, follow the **proposal**.
 
 1. Define **query set** and task types (open QA, evidence finding, figure/table-centric). Reserve held-out queries for final numbers.
 2. Define **systems to compare:**
-   - S0: SciRet v1 (legacy) on same subset where feasible.
-   - S1: SciRet v2 text-only (modern stack).
-   - S2: SciRet v2 multimodal.
+    - S0: Legacy SciRet on same subset where feasible.
+    - S1: SciRet text-only (modern stack).
+    - S2: SciRet multimodal.
    - S3+: At least two **fusion** variants if RQ3 is in scope (e.g. late fusion vs caption-augmented text).
 3. Fix **metrics:** retrieval (Recall@K, MRR, NDCG); generation (RAGAS-style faithfulness, relevance, groundedness); **citation** rules; optional small human audit for RQ4.
 
@@ -113,7 +113,7 @@ Whenever the proposal and README disagree, follow the **proposal**.
 ## 4. Repository hygiene (instructions)
 
 - Large data and generated indices stay **out of git** (see `.gitignore`).
-- Ensure **proposal path** is ignored if you do not want it public: e.g. `0_docs/SciRet_v2_Research_Proposal.docx` (root-only ignore may miss `0_docs/` copies).
+- Ensure **proposal path** is ignored if you do not want it public: e.g. `0_docs/SciRet_Research_Proposal.docx` (root-only ignore may miss `0_docs/` copies).
 - Migrate proven notebook code into **`2_src/`** for reproducibility; keep notebooks for exploration and figures.
 
 ---
@@ -129,7 +129,7 @@ Whenever the proposal and README disagree, follow the **proposal**.
 
 ## 6. Immediate next actions (checklist)
 
-- [ ] Read `0_docs/SciRet_v2_Research_Proposal.docx` and list any milestones not covered above; merge into Phase A.
+- [ ] Read `0_docs/SciRet_Research_Proposal.docx` and list any milestones not covered above; merge into Phase A.
 - [ ] Fix Tier 1 subset and document selection query.
 - [ ] Finish EDA + chunking notebook outputs → stable processed files.
 - [ ] Implement or stub `2_src` layout to match README; connect Gradio to stub then real retriever.

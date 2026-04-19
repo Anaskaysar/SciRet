@@ -37,7 +37,7 @@ custom_theme = gr.themes.Soft(
     block_label_text_color="*primary_700",
 )
 
-with gr.Blocks(theme=custom_theme, title="SciRet v2", css="footer {visibility: hidden}") as iface:
+with gr.Blocks(theme=custom_theme, title="SciRet", css="footer {visibility: hidden}") as iface:
     # Header Area
     gr.HTML("""
     <style>
@@ -60,11 +60,6 @@ with gr.Blocks(theme=custom_theme, title="SciRet v2", css="footer {visibility: h
             font-size: 2.8rem;
             color: var(--body-text-color, #212529);
             margin: 0 0 10px 0;
-        }
-        .sciret-logo .v2 {
-            color: var(--color-accent, #0d6efd);
-            font-size: 1.5rem;
-            vertical-align: super;
         }
         .sciret-desc {
             color: var(--body-text-color-subdued, #495057);
@@ -118,7 +113,7 @@ with gr.Blocks(theme=custom_theme, title="SciRet v2", css="footer {visibility: h
     </style>
     <div class="sciret-header">
         <p class="sciret-eyebrow">Scientific Retrieval System</p>
-        <h1 class="sciret-logo">SciRet <span class="v2">v2</span></h1>
+        <h1 class="sciret-logo">SciRet</h1>
         <p class="sciret-desc">
             Multimodal Retrieval-Augmented Generation for Scientific Knowledge Access —
             reasoning across text, figures, and tables in scientific literature.
@@ -189,7 +184,7 @@ with gr.Blocks(theme=custom_theme, title="SciRet v2", css="footer {visibility: h
                 outputs=[retrieved_papers, generated_answer]
             )
 
-        with gr.TabItem("About SciRet v2", id="tab-about"):
+        with gr.TabItem("About SciRet", id="tab-about"):
             gr.Markdown("""
             <div style="padding: 20px;">
                 <h2 style="color: #0d6efd;">Overview</h2>
@@ -199,7 +194,7 @@ with gr.Blocks(theme=custom_theme, title="SciRet v2", css="footer {visibility: h
                 A retrieval system that ignores these modalities is, by definition, incomplete.
                 </p>
                 <p style="font-size: 1.1em; line-height: 1.6;">
-                <b>SciRet v2</b> addresses this gap by building a modern Retrieval-Augmented Generation (RAG) pipeline 
+                <b>SciRet</b> addresses this gap by building a modern Retrieval-Augmented Generation (RAG) pipeline 
                 that indexes and retrieves across all content types in scientific papers, then uses a vision-language model 
                 to generate grounded, cited answers.
                 </p>

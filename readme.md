@@ -11,7 +11,7 @@
 
 _An evolution of the original SciRet (2022) — extending text-only RAG to reason across text, figures, tables, and equations in scientific literature._
 
-![SciRet v2 Demo Interface](0_docs/Images/Demopage.png)
+![SciRet Demo Interface](0_docs/Images/Demopage.png)
 
 </div>
 
@@ -21,7 +21,7 @@ _An evolution of the original SciRet (2022) — extending text-only RAG to reaso
 
 <p class="text-justify">Scientific papers are multimodal documents. A paper on COVID-19 lung imaging conveys critical information through CT scan figures, comparison tables of patient outcomes, and statistical charts — not just through text. A retrieval system that ignores these modalities is, by definition, incomplete.
 
-**SciRet v2** addresses this gap by building a modern Retrieval-Augmented Generation (RAG) pipeline that indexes and retrieves across all content types in scientific papers, then uses a vision-language model to generate grounded, cited answers.
+**SciRet** addresses this gap by building a modern Retrieval-Augmented Generation (RAG) pipeline that indexes and retrieves across all content types in scientific papers, then uses a vision-language model to generate grounded, cited answers.
 
 This project is both a research contribution and a PhD preparation portfolio, targeting publication at ECIR / ACL workshops.
 
@@ -32,7 +32,7 @@ This project is both a research contribution and a PhD preparation portfolio, ta
 | #       | Question                                                                                                                                                                                                             |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **RQ1** | Does incorporating multimodal content — figures, tables, visual elements — into a RAG pipeline improve the quality, completeness, and faithfulness of answers to scientific queries compared to text-only retrieval? |
-| **RQ2** | How does a modern text-only RAG system (2026 components) compare to the original SciRet (2022) on the same retrieval and generation tasks?                                                                           |
+| **RQ2** | How does a modern text-only RAG system (2026 components) compare to the Legacy SciRet (2022) on the same retrieval and generation tasks?                                                                           |
 | **RQ3** | What is the most effective strategy for fusing text and visual modalities — late fusion, early fusion, or learned fusion?                                                                                            |
 | **RQ4** | How can hallucination be detected and reduced in scientific answer generation where factual accuracy is critical?                                                                                                    |
 
@@ -87,7 +87,7 @@ This project is both a research contribution and a PhD preparation portfolio, ta
 
 ## Technology Stack
 
-| Component        | 2022 (SciRet v1)           | 2026 (SciRet v2)              |
+| Component        | 2022 (Legacy SciRet)       | 2026 (SciRet)                 |
 | ---------------- | -------------------------- | ----------------------------- |
 | Framework        | Haystack v1 _(deprecated)_ | LangChain v0.3+               |
 | Text Embedder    | DPR bi-encoder             | BGE-M3                        |
@@ -132,7 +132,7 @@ The same preprocessing, chunking, retrieval, and generation settings should be h
 ## Project Structure
 
 ```
-sciret-v2/
+sciret/
 │
 ├── 0_docs/                            # Documentation, design docs, and images
 │   └── Images/                        # Screenshots and diagrams
@@ -176,7 +176,7 @@ sciret-v2/
 ├── 5_app/                             # Demo application
 │   └── gradio_app.py                 # Gradio demo interface
 │
-├── 6_legacy/                          # Original SciRet 2022 code & reports
+├── 6_legacy/                          # Legacy SciRet 2022 code & reports
 │   ├── Data-Preparation.ipynb
 │   ├── Train.ipynb
 │   └── Testing_Save_and_Load_Model.ipynb
@@ -188,21 +188,21 @@ sciret-v2/
 
 ---
 
-## Comparison: SciRet v1 vs v2
+## Comparison: Legacy SciRet vs SciRet 2026
 
 _Results table will be populated as experiments are completed._
 
 | System                      | Recall@5 | MRR | Faithfulness | Answer Relevance |
 | --------------------------- | -------- | --- | ------------ | ---------------- |
 | SciRet 2022 (DPR + GPT-Neo) | —        | —   | —            | —                |
-| SciRet v2 Text-only         | —        | —   | —            | —                |
-| SciRet v2 Multimodal        | —        | —   | —            | —                |
+| SciRet Text-only            | —        | —   | —            | —                |
+| SciRet Multimodal           | —        | —   | —            | —                |
 
 ---
 
 ## Roadmap
 
-- [x] Original SciRet system (BSc Senior Design, 2022)
+- [x] Legacy SciRet system (BSc Senior Design, 2022)
 - [ ] **Phase 0** — Foundations & theory (in progress)
 - [ ] **Phase 1** — Environment setup & CORD-19 data pipeline
 - [ ] **Phase 2** — Modern text RAG baseline
@@ -257,7 +257,7 @@ print(result.sources)
 
 This project is a direct evolution of **SciRet** (2022), a BSc Senior Design Project at the Department of Electrical and Computer Engineering, North South University, Bangladesh. The original system used GPT-Neo and DPR to build a passage retrieval system over the CORD-19 dataset.
 
-SciRet v2 modernises the architecture, extends it to multimodal inputs, and introduces rigorous quantitative evaluation — addressing the core limitations of the 2022 system.
+SciRet modernises the architecture, extends it to multimodal inputs, and introduces rigorous quantitative evaluation — addressing the core limitations of the 2022 system.
 
 **Original project report:** See `/legacy/` directory  
 **Original GitHub:** [Anaskaysar/SciRet-Scientific-Information-Made-Easy](https://github.com/Anaskaysar/SciRet-Scientific-Information-Made-Easy)
@@ -303,5 +303,5 @@ MIT License — see `LICENSE` for details.
 ---
 
 <div align="center">
-<sub>SciRet v2 — Research in progress — Started March 2026</sub>
+<sub>SciRet — Research in progress — Started March 2026</sub>
 </div>

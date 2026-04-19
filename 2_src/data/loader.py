@@ -7,7 +7,7 @@ import pandas as pd
 
 
 class CORDDataLoader:
-    """Load and persist CORD-19 tabular artifacts for SciRet v2."""
+    """Load and persist CORD-19 tabular artifacts for SciRet."""
 
     def __init__(self, root_dir: Optional[Path] = None) -> None:
         self.root_dir = Path(root_dir) if root_dir else Path(__file__).resolve().parents[2]

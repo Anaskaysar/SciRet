@@ -1,1 +1,1 @@
-"""SciRet v2 source package."""
+"""SciRet source package."""

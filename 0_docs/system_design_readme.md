@@ -1,12 +1,12 @@
-# SciRet v2 System Design Guide (Beginner-Friendly)
+# SciRet System Design Guide (Beginner-Friendly)
 
-This document explains how SciRet v2 differs from a classic ML/DL project and how to run it efficiently across Tier 1 (1k papers) and Tier 2 (50k papers).
+This document explains how SciRet differs from a classic ML/DL project and how to run it efficiently across Tier 1 (1k papers) and Tier 2 (50k papers).
 
 ---
 
-## 1) How SciRet v2 is different from regular ML/DL
+## 1) How SciRet is different from regular ML/DL
 
-## Classic ML/DL (what you did in SciRet v1 style)
+## Classic ML/DL (what you did in Legacy SciRet style)
 
 Typical flow:
 
@@ -53,7 +53,7 @@ If any of these mismatches, results can become inconsistent.
 
 ---
 
-## 2) End-to-end SciRet v2 architecture diagram
+## 2) End-to-end SciRet architecture diagram
 
 ```mermaid
 flowchart TD
@@ -179,5 +179,5 @@ This is exactly a strong research-engineering workflow and is suitable for paper
 ## 8) One-line mental model
 
 Classic ML = "train model to remember knowledge."  
-SciRet v2 RAG = "store knowledge in searchable memory, then fetch + reason at runtime."
+SciRet RAG = "store knowledge in searchable memory, then fetch + reason at runtime."
 
