@@ -83,6 +83,30 @@ This project is both a research contribution and a PhD preparation portfolio, ta
 └─────────────────────────────────────────────────────────────────┘
 ```
 
+### Modular Pipeline Flow
+
+```mermaid
+flowchart TD
+    A[CORD-19 metadata + PDFs] --> B[01 Data Exploration and Cleaning]
+    B --> C[02 Text Chunking]
+    C --> D[03 Text Embeddings]
+    C --> E[04 BM25 Index]
+    D --> F[Vector Store Index]
+    E --> G[Hybrid Retrieval RRF]
+    F --> G
+    G --> H[05 Reranking]
+    H --> I[08 Multimodal Pipeline Router]
+    J[06 Figure Extraction] --> K[07 CLIP Embeddings]
+    K --> I
+    I --> L[LLM Answer Generation + Citations]
+    L --> M[09 Evaluation + Result Tables]
+    L --> N[5_app Gradio Demo]
+```
+
+### High-Fidelity Architecture
+
+![SciRet Architecture](0_docs/sciret_architecture_figure1.svg)
+
 ---
 
 ## Technology Stack
@@ -98,6 +122,22 @@ This project is both a research contribution and a PhD preparation portfolio, ta
 | Multimodal       | None                       | CLIP + BLIP-2 + LLaVA         |
 | Evaluation       | None (qualitative)         | RAGAS framework               |
 | UI               | Flask                      | Gradio                        |
+
+---
+
+## Performance & Memory Management
+
+SciRet uses state-of-the-art multimodal models that require significant memory (VRAM or Unified Memory).
+
+- **OOM Errors**: If you encounter `RuntimeError: MPS backend out of memory` (on Mac) or `CUDA out of memory`, reduce the `batch_size` in the embedding or generation steps.
+- **Recommended Batch Sizes**:
+  - **Tier 1 (1k papers)**: Default `batch=16`.
+  - **Tier 2 (50k papers)**: Scale according to your hardware (e.g., A100/H100 on Kaggle).
+- **Kernel Hygiene**: Restart the Jupyter kernel between massive processing runs to clear cached memory allocations.
+- **Cache-or-Build**: Precomputed embeddings and indexes are persisted in `1_data/` to avoid redundant computation. If you change models or chunking parameters, ensure you clear these caches.
+
+> [!NOTE]
+> For more technical details on system design, see [system_design_readme.md](0_docs/system_design_readme.md).
 
 ---
 
