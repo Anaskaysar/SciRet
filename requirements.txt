@@ -31,5 +31,5 @@ ragas
 
 # API & UI
 google-generativeai
-gradio
+flask
 python-dotenv

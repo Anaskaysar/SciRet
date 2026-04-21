@@ -108,7 +108,7 @@ flowchart TD
     K --> I
     I --> L[LLM Answer Generation + Citations]
     L --> M[09 Evaluation + Result Tables]
-    L --> N[5_app Gradio Demo]
+    L --> N[5_app Flask Web App]
 ```
 
 ### High-Fidelity Architecture
@@ -129,7 +129,7 @@ flowchart TD
 | Generator        | GPT-Neo 2.7B               | Mistral 7B / Gemini API       |
 | Multimodal       | None                       | CLIP + BLIP-2 + LLaVA         |
 | Evaluation       | None (qualitative)         | RAGAS framework               |
-| UI               | Flask                      | Gradio                        |
+| UI               | Flask                      | Flask                         |
 
 ---
 
@@ -222,7 +222,7 @@ sciret/
 │   └── comparison_table.md           # System comparison results
 │
 ├── 5_app/                             # Demo application
-│   └── gradio_app.py                 # Gradio demo interface
+│   └── app.py                        # Flask web application interface
 │
 ├── 6_legacy/                          # Legacy SciRet 2022 code & reports
 │   ├── Data-Preparation.ipynb
@@ -257,7 +257,7 @@ _Results table will be populated as experiments are completed._
 - [ ] **Phase 3** — Multimodal extension (CLIP + BLIP-2 + LLaVA)
 - [ ] **Phase 4** — Evaluation & comparison experiments
 - [ ] **Phase 5** — Paper writing & arXiv submission
-- [ ] Gradio demo deployment (Hugging Face Spaces)
+- [ ] Flask web app deployment (Hugging Face Spaces)
 
 ---
 

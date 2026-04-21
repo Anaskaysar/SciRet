@@ -70,7 +70,7 @@ flowchart TD
     K --> I
     I --> L[LLM Answer Generation + Citations]
     L --> M[09 Evaluation + Result Tables]
-    L --> N[5_app Gradio Demo]
+    L --> N[5_app Flask Web App]
 ```
 
 ---

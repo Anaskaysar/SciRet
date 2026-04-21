@@ -12,8 +12,8 @@ Whenever the proposal and README disagree, follow the **proposal**.
 
 1. **System:** Multimodal RAG over a CORD-19 subset — text chunks, figures, tables — with hybrid retrieval (BM25 + dense), reranking, and grounded answer generation (+ optional visual QA path).
 2. **Research:** Answer RQs in the README/proposal (multimodal vs text-only, comparison to Legacy SciRet, fusion strategies, hallucination mitigation).
-3. **Artifacts:** Reproducible code (`2_src`), notebooks for exploration, evaluation outputs (`4_results`), Gradio demo (`5_app`), and a paper / preprint path (ECIR / ACL workshop / arXiv as targeted in README).
-4. **Demo:** Replace dummy retrieval in `gradio_app.py` with the real pipeline; optional Hugging Face Space.
+3. **Artifacts:** Reproducible code (`2_src`), notebooks for exploration, evaluation outputs (`4_results`), Flask Web App (`5_app`), and a paper / preprint path (ECIR / ACL workshop / arXiv as targeted in README).
+4. **Demo:** Replace dummy retrieval in `app.py` with the real pipeline; optional Hugging Face Space.
 
 ---
 
@@ -100,11 +100,11 @@ Whenever the proposal and README disagree, follow the **proposal**.
 
 ### Phase G — Demo and dissemination (2–4 weeks)
 
-**Deliverable:** Working Gradio app on real backend; paper draft; optional HF Space.
+**Deliverable:** Working Flask app on real backend; paper draft; optional HF Space.
 
 **Tasks:**
 
-1. Wire `5_app/gradio_app.py` to pipeline (text-only first, then multimodal).
+1. Wire `5_app/app.py` to pipeline (text-only first, then multimodal).
 2. Package small index or retrieval strategy suitable for hosting limits.
 3. Write paper; submit to target venue + arXiv per proposal timeline.
 
@@ -132,7 +132,7 @@ Whenever the proposal and README disagree, follow the **proposal**.
 - [ ] Read `0_docs/SciRet_Research_Proposal.docx` and list any milestones not covered above; merge into Phase A.
 - [ ] Fix Tier 1 subset and document selection query.
 - [ ] Finish EDA + chunking notebook outputs → stable processed files.
-- [ ] Implement or stub `2_src` layout to match README; connect Gradio to stub then real retriever.
+- [ ] Implement or stub `2_src` layout to match README; connect Flask to stub then real retriever.
 - [ ] Draft 20–50 seed queries with rough relevance labels for early retrieval tuning.
 
 ---
