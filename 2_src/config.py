@@ -51,6 +51,7 @@ CLIP_DIM: int = 512
 BLIP2_MODEL: str = "Salesforce/blip2-opt-2.7b"
 LLAVA_MODEL: str = "llava-hf/llava-1.5-7b-hf"
 GEMINI_MODEL: str = "gemini-2.0-flash"
+GROQ_MODEL: str = "llama-3.1-8b-instant"
 MISTRAL_MODEL: str = "mistralai/Mistral-7B-Instruct-v0.2"
 
 # Retrieval hyperparameters — FROZEN.
@@ -217,6 +218,7 @@ __all__ = [
     "BLIP2_MODEL",
     "LLAVA_MODEL",
     "GEMINI_MODEL",
+    "GROQ_MODEL",
     "MISTRAL_MODEL",
     "DENSE_TOP_K",
     "SPARSE_TOP_K",
