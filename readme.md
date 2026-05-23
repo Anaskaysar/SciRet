@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/Status-In%20Development-amber?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Status-arXiv%20Submission%20Prepped-brightgreen?style=for-the-badge" />
 <!-- <img src="https://img.shields.io/badge/Phase-0%20%E2%80%94%20Foundations-blue?style=for-the-badge" /> -->
 <img src="https://img.shields.io/badge/Python-3.10%2B-green?style=for-the-badge&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/License-MIT-teal?style=for-the-badge" />
@@ -251,12 +251,12 @@ _Results table will be populated as experiments are completed._
 ## Roadmap
 
 - [x] Legacy SciRet system (BSc Senior Design, 2022)
-- [ ] **Phase 0** — Foundations & theory (in progress)
-- [ ] **Phase 1** — Environment setup & CORD-19 data pipeline
-- [ ] **Phase 2** — Modern text RAG baseline
-- [ ] **Phase 3** — Multimodal extension (CLIP + BLIP-2 + LLaVA)
-- [ ] **Phase 4** — Evaluation & comparison experiments
-- [ ] **Phase 5** — Paper writing & arXiv submission
+- [x] **Phase 0** — Foundations & theory
+- [x] **Phase 1** — Environment setup & CORD-19 data pipeline
+- [x] **Phase 2** — Modern text RAG baseline
+- [x] **Phase 3** — Multimodal extension (CLIP + BLIP-2 + LLaVA)
+- [x] **Phase 4** — Evaluation & comparison experiments
+- [x] **Phase 5** — Paper writing & arXiv submission
 - [ ] Flask web app deployment (Hugging Face Spaces)
 
 ---
@@ -318,7 +318,7 @@ This work targets submission to:
 
 - **ECIR 2026** — European Conference on Information Retrieval
 - **ACL workshops** — NLP for scientific documents
-- **arXiv preprint** — posted upon draft completion
+- **arXiv preprint** — Submission prepared (ax.tar generated)
 
 > [!NOTE]
 > The manuscript is maintained in Overleaf for editor/coauthor collaboration. This repository focuses on code, experiments, and reproducible artifacts used by the paper.
