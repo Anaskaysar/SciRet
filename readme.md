@@ -251,12 +251,12 @@ _Results table will be populated as experiments are completed._
 ## Roadmap
 
 - [x] Legacy SciRet system (BSc Senior Design, 2022)
-- [ ] **Phase 0** — Foundations & theory (in progress)
-- [ ] **Phase 1** — Environment setup & CORD-19 data pipeline
-- [ ] **Phase 2** — Modern text RAG baseline
-- [ ] **Phase 3** — Multimodal extension (CLIP + BLIP-2 + LLaVA)
-- [ ] **Phase 4** — Evaluation & comparison experiments
-- [ ] **Phase 5** — Paper writing & arXiv submission
+- [x] **Phase 0** — Foundations & theory (in progress)
+- [x] **Phase 1** — Environment setup & CORD-19 data pipeline
+- [x] **Phase 2** — Modern text RAG baseline
+- [x] **Phase 3** — Multimodal extension (CLIP + BLIP-2 + LLaVA)
+- [x] **Phase 4** — Evaluation & comparison experiments
+- [x] **Phase 5** — Paper writing & arXiv submission
 - [ ] Flask web app deployment (Hugging Face Spaces)
 
 ---
@@ -308,7 +308,7 @@ This project is a direct evolution of **SciRet** (2022), a BSc Senior Design Pro
 SciRet modernises the architecture, extends it to multimodal inputs, and introduces rigorous quantitative evaluation — addressing the core limitations of the 2022 system.
 
 **Original project report:** See `/legacy/` directory  
-**Original GitHub:** [Anaskaysar/SciRet-Scientific-Information-Made-Easy](https://github.com/Anaskaysar/SciRet-Scientific-Information-Made-Easy)
+**Original GitHub:** [Anaskaysar/SciRet](https://github.com/Anaskaysar/SciRet)
 
 ---
 
@@ -316,8 +316,6 @@ SciRet modernises the architecture, extends it to multimodal inputs, and introdu
 
 This work targets submission to:
 
-- **ECIR 2026** — European Conference on Information Retrieval
-- **ACL workshops** — NLP for scientific documents
 - **arXiv preprint** — posted upon draft completion
 
 > [!NOTE]
