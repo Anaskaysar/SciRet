@@ -1,4 +1,4 @@
-Review1: Official Review of Submission8722 by Reviewer 5KS8
+## Review1: Official Review of Submission8722 by Reviewer 5KS8
 Official Reviewby Reviewer 5KS805 Jul 2026, 09:41 (modified: 08 Jul 2026, 18:56)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Reviewer 5KS8, AuthorsRevisions
 Paper Summary:
 This paper presents SciRet, a compute-aware empirical study of retrieval and reranking components within a fixed scientific RAG pipeline over subsets of the CORD-19 corpus at three scales (1K, 5K, 15K papers).

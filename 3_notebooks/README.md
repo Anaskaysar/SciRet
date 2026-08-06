@@ -1,57 +1,56 @@
-# SciRet Notebooks — Restructured May 2026
+# SciRet Notebooks — Restructured 2026-08-05
 
 ## How This Works
 
-This folder supports the **scale law study** for the EMNLP 2026 paper.
-The design runs an identical pipeline at 6 corpus sizes to empirically
-characterize how BM25 vs dense retrieval performance changes with scale.
+One notebook, `sciret_pipeline.ipynb`, runs the entire pipeline end to end: sample → chunk →
+embed (BGE-M3 + BM25) → retrieve (dense/BM25/hybrid) → rerank (MS MARCO cross-encoder) →
+generate (GPT-4o-mini) → evaluate (RAGAS). Change `N_PAPERS` and `SCALE_LABEL` in the config
+cell at the top to rerun at a different scale — nothing else should need to change.
+
+It also runs the Phase 1B full-text-vs-abstract-only pilot (see `SciRet_Reboot_Plan.md`):
+set `RUN_FULLTEXT = True` to build both indexing conditions side by side in the same run and
+get a direct comparison table at the end, instead of writing a separate notebook per condition.
 
 ## Folder Map
 
 ```
-General/              ← Run ONCE. Shared across all scale experiments.
-  00_environment.ipynb      Environment check, package versions
-  01_dataset_stats.ipynb    Full CORD-19 corpus statistics
+General/                    ← Run ONCE. Shared across all runs.
+  00_environment.ipynb        Environment check, package versions
+  01_dataset_stats.ipynb      Full CORD-19 corpus statistics
   02_chunking_strategy.ipynb  4-strategy chunking comparison (done once)
-  03_query_set.ipynb        Define + save the 50 evaluation queries (FIXED ground truth)
-  04_cross_tier_analysis.ipynb  Fit scale curves after all tiers complete
+  03_query_set.ipynb          Defines the 50-query stratified eval set (1_data/eval/queries.json)
+  04_cross_tier_analysis.ipynb  Fit scale curves once multiple scales have been run
 
-scale_1K/             ← 1,000 papers  (local CPU, ~5 min)
-scale_5K/             ← 5,000 papers  (local GPU, ~20 min)
-scale_15K/            ← 15,000 papers (Kaggle T4, ~45 min)
-scale_30K/            ← 30,000 papers (Kaggle T4, ~90 min)
-scale_50K/            ← 50,000 papers (Kaggle T4, ~75 min) ← PRIMARY REPORTING TIER
-scale_75K/            ← 75,000 papers  [only if professor provides compute]
-scale_100K/           ← 100,000 papers [only if professor provides compute]
+sciret_pipeline.ipynb       ← THE pipeline. Parameterized by N_PAPERS/SCALE_LABEL in its config cell.
+kaggle/                     ← Earlier one-off Kaggle exports (15K/30K/50K) — kept for reference,
+                               not the current pattern; superseded by sciret_pipeline.ipynb going forward.
 ```
 
-## Each Scale Folder Contains
+Results from each run land in `4_results/<SCALE_LABEL>/`, with `_abstract` / `_fulltext`
+suffixes on filenames when the full-text pilot is on.
 
-```
-01_sample_chunk.ipynb     Sample N papers (stratified by year), build chunks
-02_embed.ipynb            BGE-M3 dense embeddings + BM25 index
-03_retrieval_ablation.ipynb  Recall@K for dense / BM25 / hybrid
-04_reranking.ipynb        Precision@K with vs without cross-encoder
-05_generation_ragas.ipynb RAGAS with Gemini 1.5 Flash  [Kaggle/GPU tiers only]
-```
+## What changed 2026-08-05
 
-## Stopping Criterion
+The old structure was one folder per scale (`scale_1K/` … `scale_100K/`), each with 5 separate
+notebooks (`01_sample_chunk` → `05_generation_ragas`) that had to be run in sequence and kept in
+sync by hand. That's now consolidated into the single `sciret_pipeline.ipynb`. The old folders
+are archived, not deleted, at `6_legacy/notebooks_scale_1K_to_100K_archived_2026-08-05/` — they
+contain real run history (including saved outputs) worth keeping for reference. See the Reboot
+Log entry for 2026-08-05 for why, and for an important finding surfaced while archiving them.
 
-After running scale_1K → scale_30K, check the delta table in
-`General/04_cross_tier_analysis.ipynb`. If the BM25/dense R@1 gap
-is no longer changing meaningfully between consecutive tiers,
-the curve has saturated and you do not need 75K/100K.
+## Key Code Conventions (carried over from the old structure)
 
-## Key Code Fixes vs Previous Notebooks
-
-See `General/FIXES.md` for the full list. Critical ones:
-1. DEVICE variable defined in every config cell
-2. RAGAS uses Gemini wrapper (not OpenAI)
-3. Ground truth loaded from fixed file, NOT derived from the retrieval system being tested
-4. DPR comparison cell has DEVICE fix applied
-5. RRF k=60 is explicit and noted in output
+1. `DEVICE` is always resolved once at the top (`'cuda' if torch.cuda.is_available() else 'cpu'`)
+2. Ground truth loads from `1_data/eval/ground_truth.json` if it exists; otherwise falls back to
+   interim pseudo-labels built from this run's own hybrid top-3 — documented as pseudo, not silently
+   treated as real ground truth
+3. `RANDOM_SEED = 42` — never change this, it's what keeps runs comparable across scales
+4. RRF k=60, reported explicitly wherever it's used
+5. Recall@K and Precision@K are computed against the (fixed, or documented-pseudo) ground truth
+   dict, never derived from the system being evaluated
 
 ## Legacy
 
-Old notebooks (tier_1, tier_2, Alamin) are archived at:
-`6_legacy/notebooks_archived_2026-05-04/`
+Older archived notebooks (tier_1, tier_2, Alamin) are at
+`6_legacy/notebooks_archived_2026-05-04/`. The scale_1K–100K structure superseded 2026-08-05 is at
+`6_legacy/notebooks_scale_1K_to_100K_archived_2026-08-05/`.
